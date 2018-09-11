@@ -12,7 +12,7 @@ function getWeatherDataByLatLong(location) {
 }
 
 function getWeatherByCity(city) {
-    $.ajax(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=58abfd87d2804c10f44de168d0bf8854`)
+    $.ajax(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=58abfd87d2804c10f44de168d0bf8854`)
         .then(
             function success(response) {
                 displayCurrentConditions(response);
