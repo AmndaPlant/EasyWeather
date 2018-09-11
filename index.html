@@ -3,15 +3,22 @@
     <head>
         <meta charset="utf-8">
         <title>EasyWeather Dev</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/findLocation.js"></script>
         <script src="js/getWeatherData.js"></script>
     </head>
     <body>
+        <p id="location"></p>
         <div class="container">
-            <h1 id="temp"></h1>
+            <p id="updated" class="light-p"></p>
+            <h1 id="temp" class="light-header"></h1>
+            <img id="currentIcon" class="icon">
             <p id="desc"></p>
             <p id="humidity"></p>
         </div>
+        <a href="https://github.com/OfficialExedo/EasyWeather">EasyWeather on GitHub!</a>
+        <a href="https://openweathermap.org">Powered by OpenWeatherMap</a>
     </body>
 </html>

@@ -1,0 +1,35 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f9f9f9;
+    width: 800px;
+    margin: 0 auto;
+}
+
+a {
+    margin-right: 1em;
+}
+
+.container {
+    background-color: white;
+    border-style: outset;
+    line-height: 0;
+}
+
+.light-header {
+    font-weight: 300;
+    font-size: 4.5rem;
+}
+
+.light-p {
+    font-weight: 300;
+}
+
+#temp {
+    display: inline-block;
+}
+
+.icon {
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+}
