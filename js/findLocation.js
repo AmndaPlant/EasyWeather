@@ -6,19 +6,13 @@ function ipLookUp() {
                     lat: response.lat,
                     long: response.lon
                 };
-                console.log(location);
-                //printLocationData(location);
+                getWeatherData(location);
             },
 
             function fail(data, status) {
                 console.log('Request Failed. Returned status of', status);
             }
         );
-}
-
-
-function printLocationData(location) {
-    console.log(location);
 }
 
 if ('geolocation' in navigator) {
@@ -30,7 +24,7 @@ if ('geolocation' in navigator) {
                 lat: position.coords.latitude,
                 long: position.coords.longitude
             };
-            printLocationData(location);
+            getWeatherData(location);
         },
         function error(error_message) {
             // Getting location resulted in an error
