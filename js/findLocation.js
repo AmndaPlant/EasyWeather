@@ -6,7 +6,7 @@ function ipLookUp() {
                     lat: response.lat,
                     long: response.lon
                 };
-                getWeatherData(location);
+                getWeatherDataByLatLong(location);
             },
 
             function fail(data, status) {
@@ -24,7 +24,7 @@ if ('geolocation' in navigator) {
                 lat: position.coords.latitude,
                 long: position.coords.longitude
             };
-            getWeatherData(location);
+            getWeatherDataByLatLong(location);
         },
         function error(error_message) {
             // Getting location resulted in an error

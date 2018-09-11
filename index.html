@@ -8,6 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/findLocation.js"></script>
         <script src="js/getWeatherData.js"></script>
+        <script src="js/formHandler.js"></script>
     </head>
     <body>
         <p id="location"></p>
@@ -18,7 +19,14 @@
             <p id="desc"></p>
             <p id="humidity"></p>
         </div>
-        <a href="https://github.com/OfficialExedo/EasyWeather">EasyWeather on GitHub!</a>
+        <div class="container">
+            <p>Enter a city</p>
+            <form>
+                <input type="text" class="ghost-input" name="city" placeholder="Enter a City" required>
+                <input type="submit" value="Search" class="ghost-button">
+            </form>
+        </div>
+        <a href="https://github.com/OfficialExedo/EasyWeather">EasyWeather on GitHub</a>
         <a href="https://openweathermap.org">Powered by OpenWeatherMap</a>
     </body>
 </html>
