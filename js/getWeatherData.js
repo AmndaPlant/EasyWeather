@@ -30,10 +30,11 @@ function displayCurrentConditions(conditions) {
     document.getElementById('updated').innerHTML = `Now (updated ${currentTime.getHours() < 12 || currentTime.getHours === 0 ? currentTime.getHours() : currentTime.getHours() - 12}:${currentTime.getMinutes()})`;
     document.getElementById('temp').innerHTML = `${Math.round(conditions.main.temp)}°C`;
     document.getElementById('desc').innerHTML = conditions.weather[0].description;
+    document.getElementById('humidity').innerHTML = `Humidity: ${conditions.main.humidity}%`
     setConditionIcon(conditions.weather[0].icon);
 }
 
 function setConditionIcon(iconCode) {
     let iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`
-    document.getElementById('currentIcon').src = iconUrl;
+    document.getElementById('current-icon').src = iconUrl;
 }
