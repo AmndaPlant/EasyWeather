@@ -29,7 +29,9 @@ function displayCurrentConditions(conditions) {
     document.getElementById('location').innerHTML = `EasyWeather - Weather for ${conditions.name}, ${conditions.sys.country}`;
     document.getElementById('updated').innerHTML = `Now (updated ${currentTime.getHours() < 12 || currentTime.getHours === 0 ? currentTime.getHours() : currentTime.getHours() - 12}:${currentTime.getMinutes()})`;
     document.getElementById('temp').innerHTML = `${Math.round(conditions.main.temp)}°C`;
-    document.getElementById('desc').innerHTML = conditions.weather[0].description;
+    document.getElementById('desc').innerHTML = conditions.weather[0].description.charAt(0).toUpperCase() + conditions.weather[0].description.substring(1);
+    document.getElementById('wind').innerHTML = getWindString(conditions.wind);
+    document.getElementById('pressure').innerHTML = `Pressure: ${conditions.main.pressure} hPa`;
     document.getElementById('humidity').innerHTML = `Humidity: ${conditions.main.humidity}%`
     setConditionIcon(conditions.weather[0].icon);
 }
@@ -37,4 +39,29 @@ function displayCurrentConditions(conditions) {
 function setConditionIcon(iconCode) {
     let iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`
     document.getElementById('current-icon').src = iconUrl;
+}
+
+function getWindString(wind) {
+    let windString = 'Wind: ' + wind.speed + ' m/s ';
+    if (wind.deg) {
+        let windDeg = wind.deg;
+        let windDirs = [
+            'N', 'NNE', 'NE', 'ENE',
+            'E', 'ESE', 'SE', 'SSE',
+            'S', 'SSW', 'SW', 'WSW',
+            'W', 'WNW', 'NW', 'NNW'
+        ];
+
+        windDeg %= 360;
+        if (windDeg < 0) windDeg += 360;
+        
+        windDeg += 180;
+
+        let direction = Math.floor(windDeg * windDirs.length / 360);
+        let index = direction % windDirs.length;
+
+        windString += windDirs[index];
+    }
+
+    return windString;
 }
