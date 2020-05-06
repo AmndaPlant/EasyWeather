@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/EasyWeather/static/css/main.d1b05096.chunk.css",
-    "main.js": "/EasyWeather/static/js/main.4967b491.chunk.js",
-    "main.js.map": "/EasyWeather/static/js/main.4967b491.chunk.js.map",
+    "main.js": "/EasyWeather/static/js/main.ce93d8e0.chunk.js",
+    "main.js.map": "/EasyWeather/static/js/main.ce93d8e0.chunk.js.map",
     "runtime-main.js": "/EasyWeather/static/js/runtime-main.8b6620b2.js",
     "runtime-main.js.map": "/EasyWeather/static/js/runtime-main.8b6620b2.js.map",
     "static/js/2.0580e049.chunk.js": "/EasyWeather/static/js/2.0580e049.chunk.js",
     "static/js/2.0580e049.chunk.js.map": "/EasyWeather/static/js/2.0580e049.chunk.js.map",
     "index.html": "/EasyWeather/index.html",
-    "precache-manifest.8e7e41c5d5897c8af64975be3385ce2e.js": "/EasyWeather/precache-manifest.8e7e41c5d5897c8af64975be3385ce2e.js",
+    "precache-manifest.78afbab5dfa3c8f862546aef02d8dc35.js": "/EasyWeather/precache-manifest.78afbab5dfa3c8f862546aef02d8dc35.js",
     "service-worker.js": "/EasyWeather/service-worker.js",
     "static/css/main.d1b05096.chunk.css.map": "/EasyWeather/static/css/main.d1b05096.chunk.css.map",
     "static/js/2.0580e049.chunk.js.LICENSE.txt": "/EasyWeather/static/js/2.0580e049.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.8b6620b2.js",
     "static/js/2.0580e049.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.4967b491.chunk.js"
+    "static/js/main.ce93d8e0.chunk.js"
   ]
 }
