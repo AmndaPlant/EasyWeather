@@ -2,6 +2,7 @@ import React from 'react';
 import apiConfig from './apiKeys';
 import DayCard from './DayCard';
 import DegreeToggle from './DegreeToggle';
+import SearchBar from './SearchBar';
 
 class WeekContainer extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class WeekContainer extends React.Component {
     this.state = {
       fullData: [],
       dailyData: [],
-      degreeType: "celsius"
+      degreeType: "celsius",
+      city: "Ottawa",
     }
   }
 
@@ -19,8 +21,17 @@ class WeekContainer extends React.Component {
     }, () => console.log(this.state));
   }
 
+  handleSubmit = event => {
+    this.fetchWeather(event.target[0].value);
+    event.preventDefault();
+  }
+
   componentDidMount() {
-    const weatherURL = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=Ottawa&units=metric&APPID=${apiConfig.owmKey}`;
+    this.fetchWeather(this.state.city);
+  }
+
+  fetchWeather(city) {
+    const weatherURL = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${apiConfig.owmKey}`;
 
     fetch(weatherURL)
       .then((res) => res.json())
@@ -29,6 +40,7 @@ class WeekContainer extends React.Component {
         this.setState({
           fullData: data.list,
           dailyData: dailyData,
+          city: city,
         }, () => console.log(this.state));
       });
   }
@@ -41,7 +53,8 @@ class WeekContainer extends React.Component {
     return (
       <div className="container">
         <h1 className="display-1 jumbotron">5-Day Forecast</h1>
-        <h5 className="display-5 text-muted">Ottawa, ON</h5>
+        <h5 className="display-5 text-muted">{this.state.city}</h5>
+        <SearchBar city={this.state.city} handleSubmit={this.handleSubmit} /> 
         <DegreeToggle degreeType={this.state.degreeType} updateForecastDegree={this.updateForecastDegree} />
         <div className="row justify-content-center">
           {this.formatDayCards()}
