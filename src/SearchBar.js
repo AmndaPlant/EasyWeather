@@ -18,9 +18,14 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit}>
-        <input type="text" placeholder="City" onChange={this.handleChange} />
-        <input type="submit" value="Submit" />
+      <form 
+        className="form-inline d-flex justify-content-center md-form form-sm active-cyan-2 mt-2"
+        onSubmit={this.props.handleSubmit}>
+        <input 
+          className="form-control form-control-sm mr-3 w-75"
+          type="text" placeholder="City" onChange={this.handleChange} 
+          aria-label="City"/>
+        
       </form>
     );
   }
