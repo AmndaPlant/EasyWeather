@@ -36,6 +36,12 @@ class WeekContainer extends React.Component {
     fetch(weatherURL)
       .then((res) => res.json())
       .then((data) => {
+        if (data.cod !== "200") {
+          this.setState({
+            city: "Error, no city",
+          }, () => console.log(data.cod));
+          return;
+        }
         const dailyData = data.list.filter((reading) => reading.dt_txt.includes("18:00:00"))
         this.setState({
           fullData: data.list,
