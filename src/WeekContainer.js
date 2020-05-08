@@ -26,23 +26,23 @@ class WeekContainer extends React.Component {
     event.preventDefault();
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.fetchWeather(this.state.city);
   }
 
-  fetchWeather(city) {
+  fetchWeather = city => {
     const weatherURL = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${apiConfig.owmKey}`;
 
     fetch(weatherURL)
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         if (data.cod !== "200") {
           this.setState({
             city: "Error, no city",
           }, () => console.log(data.cod));
           return;
         }
-        const dailyData = data.list.filter((reading) => reading.dt_txt.includes("18:00:00"))
+        const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"))
         this.setState({
           fullData: data.list,
           dailyData: dailyData,
@@ -51,7 +51,7 @@ class WeekContainer extends React.Component {
       });
   }
 
-  formatDayCards() {
+  formatDayCards = () => {
     return this.state.dailyData.map((reading, index) => <DayCard reading={reading} key={index} degreeType={this.state.degreeType}/>);
   }
 
