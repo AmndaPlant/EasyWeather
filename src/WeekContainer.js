@@ -24,6 +24,9 @@ class WeekContainer extends React.Component {
   }
 
   handleSubmit = event => {
+    this.setState({
+      loading: true,
+    })
     this.fetchWeather(event.target[0].value);
     event.preventDefault();
   }
