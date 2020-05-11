@@ -3,6 +3,7 @@ import apiConfig from './apiKeys';
 import DayCard from './DayCard';
 import DegreeToggle from './DegreeToggle';
 import SearchBar from './SearchBar';
+import Loader from './Loader'
 
 class WeekContainer extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class WeekContainer extends React.Component {
       dailyData: [],
       degreeType: "celsius",
       city: "Ottawa",
+      loading: true,
     }
   }
 
@@ -47,6 +49,7 @@ class WeekContainer extends React.Component {
           fullData: data.list,
           dailyData: dailyData,
           city: city,
+          loading: false,
         }, () => console.log(this.state));
       });
   }
@@ -62,9 +65,12 @@ class WeekContainer extends React.Component {
         <h5 className="display-5 text-muted">{this.state.city}</h5>
         <SearchBar city={this.state.city} handleSubmit={this.handleSubmit} /> 
         <DegreeToggle degreeType={this.state.degreeType} updateForecastDegree={this.updateForecastDegree} />
-        <div className="row justify-content-center">
-          {this.formatDayCards()}
-        </div>
+        {this.state.loading ?
+          <Loader /> : 
+          <div className="row justify-content-center">
+            {this.formatDayCards()}
+          </div>
+        }
       </div>
     );
   }
