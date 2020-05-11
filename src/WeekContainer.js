@@ -20,7 +20,7 @@ class WeekContainer extends React.Component {
   updateForecastDegree = event => {
     this.setState({
       degreeType: event.target.value,
-    }, () => console.log(this.state));
+    });
   }
 
   handleSubmit = event => {
@@ -44,7 +44,7 @@ class WeekContainer extends React.Component {
         if (data.cod !== "200") {
           this.setState({
             city: "Error, no city",
-          }, () => console.log(data.cod));
+          });
           return;
         }
         const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"))
@@ -53,7 +53,7 @@ class WeekContainer extends React.Component {
           dailyData: dailyData,
           city: city,
           loading: false,
-        }, () => console.log(this.state));
+        });
       });
   }
 
